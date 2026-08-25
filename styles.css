@@ -1,0 +1,2038 @@
+:root {
+
+    --navy: #07162c;
+    --navy-claro: #122844;
+    --navy-oscuro: #020914;
+
+    --dorado: #c5a159;
+    --dorado-claro: #e2cb91;
+
+    --blanco: #ffffff;
+
+    --gris: #f5f4f0;
+    --gris-texto: #707070;
+
+    --texto: #222222;
+
+}
+
+
+/* ===============================
+   GENERAL
+=============================== */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    font-family: "Montserrat", sans-serif;
+
+    color: var(--texto);
+
+    background: white;
+
+    overflow-x: hidden;
+
+}
+
+
+body.modal-abierto {
+
+    overflow: hidden;
+
+}
+
+
+img {
+
+    display: block;
+
+    width: 100%;
+
+}
+
+
+a {
+
+    text-decoration: none;
+
+}
+
+
+button,
+input,
+textarea,
+select {
+
+    font-family: inherit;
+
+}
+
+
+button {
+
+    cursor: pointer;
+
+}
+
+
+
+/* ===============================
+   NAVBAR
+=============================== */
+
+header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(7,22,44,0.92);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+.navbar {
+
+    max-width: 1300px;
+
+    height: 76px;
+
+    margin: auto;
+
+    padding: 0 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.logo {
+
+    color: white;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 22px;
+
+}
+
+
+.logo span {
+
+    color: var(--dorado);
+
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 25px;
+
+    list-style: none;
+
+}
+
+
+.nav-links a {
+
+    color: white;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+    transition: 0.3s;
+
+}
+
+
+.nav-links a:hover {
+
+    color: var(--dorado);
+
+}
+
+
+.menu-icon {
+
+    display: none;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 28px;
+
+}
+
+
+
+/* ===============================
+   HERO FOTO 29
+=============================== */
+
+.hero {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+
+        linear-gradient(
+            rgba(3,11,24,0.25),
+            rgba(3,11,24,0.82)
+        ),
+
+        url("imagenes/foto29.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+}
+
+
+.hero-contenido {
+
+    max-width: 950px;
+
+    padding: 30px;
+
+}
+
+
+.colegio {
+
+    margin-bottom: 28px;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+}
+
+
+.hero h1 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(60px,11vw,130px);
+
+    font-weight: 400;
+
+    line-height: 0.85;
+
+}
+
+
+.hero h1 span {
+
+    display: block;
+
+    margin-top: 25px;
+
+    color: var(--dorado);
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 1.15em;
+
+}
+
+
+.hero-frase {
+
+    margin: 30px 0 35px;
+
+    font-size: 17px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.boton-principal {
+
+    display: inline-block;
+
+    padding: 15px 28px;
+
+    border: 1px solid var(--dorado);
+
+    color: white;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+
+}
+
+
+.boton-principal:hover {
+
+    background: var(--dorado);
+
+    color: var(--navy);
+
+}
+
+
+.flecha-abajo {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    color: white;
+
+    font-size: 28px;
+
+    animation: bajar 2s infinite;
+
+}
+
+
+@keyframes bajar {
+
+    50% {
+
+        transform: translateY(10px);
+
+    }
+
+}
+
+
+
+/* ===============================
+   GENERAL SECCIONES
+=============================== */
+
+.seccion {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 120px 35px;
+
+}
+
+
+.titulo-seccion span {
+
+    color: var(--dorado);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+}
+
+
+.titulo-seccion h2 {
+
+    margin-top: 12px;
+
+    color: var(--navy);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(40px,6vw,65px);
+
+    font-weight: 400;
+
+}
+
+
+.titulo-seccion > p {
+
+    max-width: 680px;
+
+    margin-top: 18px;
+
+    color: var(--gris-texto);
+
+    line-height: 1.8;
+
+}
+
+
+.centrado {
+
+    margin-bottom: 60px;
+
+    text-align: center;
+
+}
+
+
+.centrado > p {
+
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+
+/* ===============================
+   PROMOCIÓN FOTO 30
+=============================== */
+
+.promocion-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+}
+
+
+.promocion-texto > p {
+
+    margin-top: 20px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+}
+
+
+.promocion-imagen {
+
+    height: 620px;
+
+    overflow: hidden;
+
+}
+
+
+.promocion-imagen img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.dato-promocion {
+
+    margin-top: 40px;
+
+}
+
+
+.dato-promocion span {
+
+    color: var(--dorado);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 80px;
+
+}
+
+
+.dato-promocion p {
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    font-size: 11px;
+
+}
+
+
+
+/* ===============================
+   FRASE
+=============================== */
+
+.frase-principal {
+
+    padding: 120px 30px;
+
+    background: var(--navy);
+
+    color: white;
+
+    text-align: center;
+
+}
+
+
+.frase-principal div {
+
+    max-width: 900px;
+
+    margin: auto;
+
+}
+
+
+.frase-principal p {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(29px,4vw,47px);
+
+    line-height: 1.5;
+
+}
+
+
+.frase-principal span {
+
+    display: block;
+
+    margin-top: 30px;
+
+    color: var(--dorado);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+}
+
+
+
+/* ===============================
+   GRADUANDOS
+=============================== */
+
+.graduandos-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 20px;
+
+}
+
+
+.graduando {
+
+    overflow: hidden;
+
+    background: white;
+
+    border: 1px solid #e5e5e5;
+
+    box-shadow: 0 10px 28px rgba(0,0,0,0.07);
+
+    transition: 0.35s;
+
+}
+
+
+.graduando:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow: 0 17px 38px rgba(0,0,0,0.13);
+
+}
+
+
+.graduando-imagen {
+
+    height: 365px;
+
+    overflow: hidden;
+
+}
+
+
+.graduando-imagen img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+
+}
+
+
+.graduando:hover img {
+
+    transform: scale(1.04);
+
+}
+
+
+.graduando-info {
+
+    padding: 25px 22px;
+
+}
+
+
+.graduando-info h3 {
+
+    color: var(--navy);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 22px;
+
+    font-weight: 500;
+
+}
+
+
+.graduando-frase {
+
+    min-height: 52px;
+
+    margin: 10px 0 20px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+}
+
+
+.boton-mensajes {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid var(--dorado);
+
+    background: white;
+
+    color: var(--navy);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+
+}
+
+
+.boton-mensajes:hover {
+
+    background: var(--navy);
+
+    color: white;
+
+    border-color: var(--navy);
+
+}
+
+
+
+/* ===============================
+   NÚMEROS
+=============================== */
+
+.numeros {
+
+    padding: 80px 30px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    background: var(--gris);
+
+    text-align: center;
+
+}
+
+
+.numeros h3 {
+
+    color: var(--navy);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 58px;
+
+    font-weight: 400;
+
+}
+
+
+.numeros p {
+
+    margin-top: 10px;
+
+    color: #777;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+}
+
+
+
+/* ===============================
+   GALERÍA FOTOS 31-36
+=============================== */
+
+.galeria {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 14px;
+
+}
+
+
+.galeria img {
+
+    width: 100%;
+
+    height: 330px;
+
+    object-fit: cover;
+
+    cursor: pointer;
+
+    transition: 0.35s;
+
+}
+
+
+.galeria img:nth-child(1),
+.galeria img:nth-child(6) {
+
+    grid-column: span 2;
+
+}
+
+
+.galeria img:hover {
+
+    filter: brightness(0.75);
+
+}
+
+
+
+/* ===============================
+   LIGHTBOX
+=============================== */
+
+.lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    background: rgba(0,0,0,0.95);
+
+}
+
+
+.lightbox.activo {
+
+    display: flex;
+
+}
+
+
+.lightbox img {
+
+    width: auto;
+
+    max-width: 88%;
+
+    max-height: 88vh;
+
+}
+
+
+.cerrar-lightbox {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 30px;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 50px;
+
+}
+
+
+.flecha-lightbox {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 55px;
+
+    height: 70px;
+
+    border: none;
+
+    background: rgba(255,255,255,0.1);
+
+    color: white;
+
+    font-size: 48px;
+
+}
+
+
+.izquierda {
+
+    left: 25px;
+
+}
+
+
+.derecha {
+
+    right: 25px;
+
+}
+
+
+
+/* ===============================
+   TIMELINE
+=============================== */
+
+.timeline {
+
+    max-width: 850px;
+
+    margin: auto;
+
+}
+
+
+.timeline-item {
+
+    display: grid;
+
+    grid-template-columns: 100px 1fr;
+
+    gap: 35px;
+
+    padding: 45px 0;
+
+    border-bottom: 1px solid #ddd;
+
+}
+
+
+.timeline-numero {
+
+    color: var(--dorado);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 40px;
+
+}
+
+
+.timeline h3 {
+
+    color: var(--navy);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 28px;
+
+}
+
+
+.timeline p {
+
+    margin-top: 12px;
+
+    color: #777;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* ===============================
+   SEMINARIO FOTO 37
+=============================== */
+
+.seminario {
+
+    min-height: 650px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background: var(--navy);
+
+    color: white;
+
+}
+
+
+.seminario-imagen {
+
+    overflow: hidden;
+
+}
+
+
+.seminario-imagen img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.seminario-contenido {
+
+    padding: 90px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+.seminario-contenido > span {
+
+    color: var(--dorado);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+}
+
+
+.seminario h2 {
+
+    margin: 20px 0 30px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(45px,6vw,68px);
+
+    font-weight: 400;
+
+}
+
+
+.seminario strong {
+
+    color: var(--dorado);
+
+    font-weight: 400;
+
+}
+
+
+.seminario p {
+
+    margin-bottom: 18px;
+
+    color: #d6d6d6;
+
+    line-height: 1.8;
+
+}
+
+
+.seminario a {
+
+    margin-top: 20px;
+
+    color: var(--dorado);
+
+}
+
+
+
+/* ===============================
+   FRASES FOTO 38
+=============================== */
+
+.frases-fondo {
+
+    min-height: 650px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        linear-gradient(
+            rgba(3,12,25,0.78),
+            rgba(3,12,25,0.85)
+        ),
+
+        url("imagenes/foto38.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    text-align: center;
+
+    color: white;
+
+}
+
+
+.frases-overlay {
+
+    max-width: 900px;
+
+    padding: 70px 30px;
+
+}
+
+
+.frases-overlay > span {
+
+    color: var(--dorado);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+}
+
+
+.frases-overlay h2 {
+
+    margin-top: 18px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(40px,6vw,60px);
+
+    font-weight: 400;
+
+}
+
+
+.frase-cambiante {
+
+    margin-top: 60px;
+
+}
+
+
+.frase-cambiante p {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(25px,4vw,36px);
+
+    line-height: 1.6;
+
+    transition: opacity 0.4s;
+
+}
+
+
+.frase-cambiante small {
+
+    display: block;
+
+    margin-top: 25px;
+
+    color: var(--dorado);
+
+    letter-spacing: 2px;
+
+}
+
+
+
+/* ===============================
+   FUTURO FOTO 39
+=============================== */
+
+.futuro {
+
+    min-height: 650px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 100px 8%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.98) 0%,
+            rgba(255,255,255,0.9) 45%,
+            rgba(255,255,255,0.15) 100%
+        ),
+
+        url("imagenes/foto39.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+
+
+.futuro-contenido {
+
+    max-width: 650px;
+
+}
+
+
+.futuro-contenido > span {
+
+    color: var(--dorado);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+}
+
+
+.futuro h2 {
+
+    margin: 15px 0 25px;
+
+    color: var(--navy);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(45px,6vw,65px);
+
+    font-weight: 400;
+
+}
+
+
+.futuro p {
+
+    color: #555;
+
+    line-height: 1.8;
+
+}
+
+
+.futuro-opciones {
+
+    margin-top: 40px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 12px;
+
+}
+
+
+.futuro-opciones div {
+
+    padding: 18px;
+
+    border: 1px solid #ddd;
+
+    background: rgba(255,255,255,0.8);
+
+    color: var(--navy);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 20px;
+
+}
+
+
+
+/* ===============================
+   ÚLTIMO PASE FOTO 40
+=============================== */
+
+.ultimo-pase {
+
+    min-height: 720px;
+
+    background:
+
+        linear-gradient(
+            rgba(2,9,20,0.78),
+            rgba(2,9,20,0.92)
+        ),
+
+        url("imagenes/foto40.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    color: white;
+
+}
+
+
+.ultimo-overlay {
+
+    min-height: 720px;
+
+    padding: 100px 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+
+.ultimo-pase span {
+
+    color: var(--dorado);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+}
+
+
+.ultimo-pase h2 {
+
+    margin: 25px 0 65px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(40px,6vw,60px);
+
+    font-weight: 400;
+
+}
+
+
+#nombreGraduando {
+
+    min-height: 110px;
+
+    display: flex;
+
+    align-items: center;
+
+    color: var(--dorado);
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(50px,8vw,90px);
+
+    transition: opacity 0.4s;
+
+}
+
+
+.presente {
+
+    margin-top: 15px;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+}
+
+
+
+/* ===============================
+   MODAL MENSAJES
+=============================== */
+
+.modal-mensajes {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 6000;
+
+    display: none;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    overflow-y: auto;
+
+    padding: 50px 20px;
+
+    background: rgba(1,7,17,0.94);
+
+}
+
+
+.modal-mensajes.activo {
+
+    display: flex;
+
+}
+
+
+.modal-contenido {
+
+    position: relative;
+
+    width: min(900px,100%);
+
+    background: white;
+
+}
+
+
+.cerrar-modal {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 18px;
+
+    z-index: 2;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 42px;
+
+}
+
+
+.modal-cabecera {
+
+    min-height: 300px;
+
+    display: grid;
+
+    grid-template-columns: 270px 1fr;
+
+    background: var(--navy);
+
+    color: white;
+
+}
+
+
+.modal-cabecera img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.modal-cabecera > div {
+
+    padding: 50px 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+.modal-cabecera span {
+
+    color: var(--dorado);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+}
+
+
+.modal-cabecera h2 {
+
+    margin: 12px 0;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 42px;
+
+    font-weight: 400;
+
+}
+
+
+.modal-cabecera p {
+
+    color: #ccc;
+
+    line-height: 1.7;
+
+}
+
+
+.mensajes-lista {
+
+    padding: 50px;
+
+    background: var(--gris);
+
+}
+
+
+.mensajes-lista h3 {
+
+    margin-bottom: 25px;
+
+    color: var(--navy);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 28px;
+
+}
+
+
+#listaMensajes {
+
+    display: grid;
+
+    gap: 15px;
+
+}
+
+
+.tarjeta-mensaje {
+
+    padding: 22px;
+
+    border-left: 3px solid var(--dorado);
+
+    background: white;
+
+}
+
+
+.tarjeta-mensaje p {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+}
+
+
+.mensaje-firma {
+
+    margin-top: 12px;
+
+    color: var(--dorado);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+
+
+.sin-mensajes {
+
+    padding: 25px;
+
+    background: white;
+
+    color: #777;
+
+    text-align: center;
+
+}
+
+
+.nuevo-mensaje {
+
+    padding: 50px;
+
+}
+
+
+.nuevo-mensaje > span {
+
+    color: var(--dorado);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+}
+
+
+.nuevo-mensaje h3 {
+
+    margin: 10px 0 30px;
+
+    color: var(--navy);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 32px;
+
+}
+
+
+.nuevo-mensaje label {
+
+    display: block;
+
+    margin: 18px 0 8px;
+
+    color: var(--navy);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+.nuevo-mensaje input,
+.nuevo-mensaje select,
+.nuevo-mensaje textarea {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #d5d5d5;
+
+    outline: none;
+
+}
+
+
+.nuevo-mensaje textarea {
+
+    min-height: 130px;
+
+    resize: vertical;
+
+}
+
+
+.nuevo-mensaje small {
+
+    display: block;
+
+    margin-top: 7px;
+
+    color: #999;
+
+}
+
+
+.boton-enviar {
+
+    margin-top: 25px;
+
+    padding: 14px 25px;
+
+    border: none;
+
+    background: var(--navy);
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+
+
+#mensajeConfirmacion {
+
+    margin-top: 15px;
+
+    color: #497645;
+
+}
+
+
+
+/* ===============================
+   MÚSICA
+=============================== */
+
+.boton-musica {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    z-index: 3000;
+
+    width: 52px;
+
+    height: 52px;
+
+    border: 1px solid var(--dorado);
+
+    border-radius: 50%;
+
+    background: var(--navy);
+
+    color: var(--dorado);
+
+    font-size: 20px;
+
+}
+
+
+
+/* ===============================
+   FOOTER
+=============================== */
+
+footer {
+
+    padding: 70px 30px;
+
+    background: #01050a;
+
+    color: white;
+
+    text-align: center;
+
+}
+
+
+.footer-logo {
+
+    margin-bottom: 15px;
+
+    color: var(--dorado);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 28px;
+
+}
+
+
+footer small {
+
+    display: block;
+
+    margin-top: 25px;
+
+    color: #777;
+
+}
+
+
+
+/* ===============================
+   TABLET
+=============================== */
+
+@media(max-width:950px) {
+
+    .menu-icon {
+
+        display: block;
+
+    }
+
+
+    .nav-links {
+
+        position: absolute;
+
+        top: 76px;
+
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        padding: 30px;
+
+        background: var(--navy);
+
+    }
+
+
+    .nav-links.activo {
+
+        display: flex;
+
+    }
+
+
+    .promocion-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .graduandos-grid {
+
+        grid-template-columns: repeat(2,1fr);
+
+    }
+
+
+    .numeros {
+
+        grid-template-columns: repeat(2,1fr);
+
+        gap: 40px;
+
+    }
+
+
+    .galeria {
+
+        grid-template-columns: repeat(2,1fr);
+
+    }
+
+
+    .galeria img:nth-child(1),
+    .galeria img:nth-child(6) {
+
+        grid-column: auto;
+
+    }
+
+
+    .seminario {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .seminario-imagen {
+
+        height: 500px;
+
+    }
+
+
+    .seminario-contenido {
+
+        padding: 70px 40px;
+
+    }
+
+
+    .futuro {
+
+        background:
+
+            linear-gradient(
+                rgba(255,255,255,0.90),
+                rgba(255,255,255,0.95)
+            ),
+
+            url("imagenes/foto39.jpg");
+
+        background-size: cover;
+
+        background-position: center;
+
+    }
+
+}
+
+
+
+/* ===============================
+   CELULAR
+=============================== */
+
+@media(max-width:600px) {
+
+    .hero {
+
+        background-attachment: scroll;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 57px;
+
+    }
+
+
+    .seccion {
+
+        padding: 90px 22px;
+
+    }
+
+
+    .promocion-imagen {
+
+        height: 450px;
+
+    }
+
+
+    .graduandos-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .graduando-imagen {
+
+        height: 470px;
+
+    }
+
+
+    .galeria {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .galeria img {
+
+        height: auto;
+
+    }
+
+
+    .timeline-item {
+
+        grid-template-columns: 55px 1fr;
+
+        gap: 20px;
+
+    }
+
+
+    .seminario-imagen {
+
+        height: 400px;
+
+    }
+
+
+    .futuro-opciones {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .modal-mensajes {
+
+        padding: 0;
+
+    }
+
+
+    .modal-cabecera {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .modal-cabecera img {
+
+        height: 370px;
+
+    }
+
+
+    .modal-cabecera > div {
+
+        padding: 35px 25px;
+
+    }
+
+
+    .mensajes-lista,
+    .nuevo-mensaje {
+
+        padding: 35px 22px;
+
+    }
+
+}
