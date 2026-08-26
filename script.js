@@ -1,4 +1,59 @@
 /* ======================================
+   FIREBASE
+====================================== */
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    query,
+    where,
+    onSnapshot,
+    serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/*
+================================================
+PEGA AQUÍ TU CONFIGURACIÓN DE FIREBASE
+================================================
+
+Firebase te dará algo parecido a esto.
+Reemplaza solamente los textos entre comillas.
+*/
+
+const firebaseConfig = {
+
+    apiKey: "TU_API_KEY",
+
+    authDomain: "TU_PROYECTO.firebaseapp.com",
+
+    projectId: "TU_PROJECT_ID",
+
+    storageBucket: "TU_PROYECTO.firebasestorage.app",
+
+    messagingSenderId: "TU_MESSAGING_SENDER_ID",
+
+    appId: "TU_APP_ID"
+
+};
+
+
+/* INICIAR FIREBASE */
+
+const app =
+    initializeApp(firebaseConfig);
+
+const db =
+    getFirestore(app);
+
+
+
+/* ======================================
    MENÚ
 ====================================== */
 
@@ -98,6 +153,8 @@ foto1 = graduando 1
 foto2 = graduando 2
 ...
 foto28 = graduando 28
+
+NO CAMBIÉ ESTA PARTE.
 */
 
 
@@ -347,7 +404,7 @@ graduandos.forEach(
 
 
 /* ======================================
-   MENSAJES
+   MENSAJES CON FIREBASE
 ====================================== */
 
 const modalMensajes =
@@ -404,128 +461,240 @@ const mensajeConfirmacion =
 let graduandoSeleccionado = 0;
 
 
+/*
+Esta variable sirve para cerrar
+el listener anterior cuando cambias
+de graduando.
+*/
 
-function obtenerMensajes(indice) {
-
-    const guardados =
-        localStorage.getItem(
-            `mensajes_graduando_${indice}`
-        );
+let cancelarListenerMensajes = null;
 
 
-    if (!guardados) {
 
-        return [];
+/* ======================================
+   MOSTRAR MENSAJES DE FIREBASE
+====================================== */
+
+function escucharMensajes(indice) {
+
+    /*
+    Si ya había otro graduando
+    abierto, detenemos su listener.
+    */
+
+    if (cancelarListenerMensajes) {
+
+        cancelarListenerMensajes();
+
+        cancelarListenerMensajes = null;
 
     }
 
 
-    try {
+    listaMensajes.innerHTML = `
 
-        return JSON.parse(
-            guardados
-        );
+        <div class="sin-mensajes">
+            Cargando mensajes...
+        </div>
 
-    }
-
-    catch {
-
-        return [];
-
-    }
-
-}
+    `;
 
 
+    /*
+    Buscamos solamente los mensajes
+    pertenecientes al graduando seleccionado.
+    */
 
-function guardarMensajes(
-    indice,
-    mensajes
-) {
+    const consulta = query(
 
-    localStorage.setItem(
+        collection(
+            db,
+            "mensajes"
+        ),
 
-        `mensajes_graduando_${indice}`,
-
-        JSON.stringify(mensajes)
+        where(
+            "graduandoId",
+            "==",
+            indice
+        )
 
     );
 
-}
+
+    /*
+    onSnapshot mantiene la información
+    sincronizada en tiempo real.
+    */
+
+    cancelarListenerMensajes =
+        onSnapshot(
+
+            consulta,
+
+            snapshot => {
+
+                listaMensajes.innerHTML =
+                    "";
 
 
-
-function mostrarMensajes(indice) {
-
-    const mensajes =
-        obtenerMensajes(indice);
+                const mensajes = [];
 
 
-    listaMensajes.innerHTML = "";
+                snapshot.forEach(
+                    documento => {
+
+                        mensajes.push({
+
+                            id:
+                                documento.id,
+
+                            ...documento.data()
+
+                        });
+
+                    }
+                );
 
 
-    if (mensajes.length === 0) {
+                /*
+                Ordenamos los mensajes
+                del más antiguo al más nuevo.
+                */
 
-        listaMensajes.innerHTML = `
+                mensajes.sort(
+                    (a, b) => {
 
-            <div class="sin-mensajes">
+                        const fechaA =
+                            a.creadoEn?.seconds || 0;
 
-                Todavía no hay mensajes.
-                Puedes ser la primera persona
-                en dejar unas palabras 💙
-
-            </div>
-
-        `;
-
-        return;
-
-    }
+                        const fechaB =
+                            b.creadoEn?.seconds || 0;
 
 
-    mensajes.forEach(mensaje => {
+                        return fechaA - fechaB;
 
-        const tarjeta =
-            document.createElement("div");
-
-
-        tarjeta.className =
-            "tarjeta-mensaje";
+                    }
+                );
 
 
-        const texto =
-            document.createElement("p");
+                /*
+                Si todavía no hay ninguno.
+                */
+
+                if (
+                    mensajes.length === 0
+                ) {
+
+                    listaMensajes.innerHTML = `
+
+                        <div class="sin-mensajes">
+
+                            Todavía no hay mensajes.
+
+                            Puedes ser la primera persona
+                            en dejar unas palabras 💙
+
+                        </div>
+
+                    `;
 
 
-        texto.textContent =
-            `“${mensaje.texto}”`;
+                    return;
+
+                }
 
 
-        const firma =
-            document.createElement("div");
+                /*
+                Crear las tarjetas.
+                */
+
+                mensajes.forEach(
+                    mensaje => {
+
+                        const tarjeta =
+                            document.createElement(
+                                "div"
+                            );
 
 
-        firma.className =
-            "mensaje-firma";
+                        tarjeta.className =
+                            "tarjeta-mensaje";
 
 
-        firma.textContent =
-            `${mensaje.autor} · ${mensaje.relacion}`;
+                        const texto =
+                            document.createElement(
+                                "p"
+                            );
 
 
-        tarjeta.appendChild(texto);
+                        texto.textContent =
+                            `“${mensaje.texto}”`;
 
-        tarjeta.appendChild(firma);
 
-        listaMensajes.appendChild(
-            tarjeta
+                        const firma =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        firma.className =
+                            "mensaje-firma";
+
+
+                        firma.textContent =
+                            `${mensaje.autor} · ${mensaje.relacion}`;
+
+
+                        tarjeta.appendChild(
+                            texto
+                        );
+
+
+                        tarjeta.appendChild(
+                            firma
+                        );
+
+
+                        listaMensajes.appendChild(
+                            tarjeta
+                        );
+
+                    }
+                );
+
+            },
+
+
+            error => {
+
+                console.error(
+                    "Error leyendo mensajes:",
+                    error
+                );
+
+
+                listaMensajes.innerHTML = `
+
+                    <div class="sin-mensajes">
+
+                        No fue posible cargar
+                        los mensajes.
+
+                    </div>
+
+                `;
+
+            }
+
         );
 
-    });
-
 }
 
 
+
+/* ======================================
+   ABRIR MENSAJES
+====================================== */
 
 function abrirMensajes(indice) {
 
@@ -541,11 +710,24 @@ function abrirMensajes(indice) {
         graduando.foto;
 
 
+    modalFotoGraduando.alt =
+        graduando.nombre;
+
+
     modalNombreGraduando.textContent =
         graduando.nombre;
 
 
-    mostrarMensajes(indice);
+    mensajeConfirmacion.textContent =
+        "";
+
+
+    /*
+    Comenzamos a escuchar los mensajes
+    de este graduando.
+    */
+
+    escucharMensajes(indice);
 
 
     modalMensajes.classList.add(
@@ -561,6 +743,10 @@ function abrirMensajes(indice) {
 
 
 
+/* ======================================
+   CERRAR MENSAJES
+====================================== */
+
 function cerrarMensajes() {
 
     modalMensajes.classList.remove(
@@ -575,9 +761,31 @@ function cerrarMensajes() {
 
     formMensaje.reset();
 
+
+    mensajeConfirmacion.textContent =
+        "";
+
+
+    /*
+    Cerramos el listener para
+    no mantener conexiones innecesarias.
+    */
+
+    if (cancelarListenerMensajes) {
+
+        cancelarListenerMensajes();
+
+        cancelarListenerMensajes = null;
+
+    }
+
 }
 
 
+
+/* ======================================
+   BOTÓN VER MENSAJES
+====================================== */
 
 document.addEventListener(
     "click",
@@ -598,9 +806,11 @@ document.addEventListener(
 
 
         abrirMensajes(
+
             Number(
                 boton.dataset.indice
             )
+
         );
 
     }
@@ -634,10 +844,14 @@ modalMensajes.addEventListener(
 
 
 
+/* ======================================
+   GUARDAR NUEVO MENSAJE EN FIREBASE
+====================================== */
+
 formMensaje.addEventListener(
     "submit",
 
-    event => {
+    async event => {
 
         event.preventDefault();
 
@@ -645,8 +859,10 @@ formMensaje.addEventListener(
         const autor =
             autorMensaje.value.trim();
 
+
         const relacion =
             relacionMensaje.value;
+
 
         const texto =
             textoMensaje.value.trim();
@@ -663,48 +879,121 @@ formMensaje.addEventListener(
         }
 
 
-        const mensajes =
-            obtenerMensajes(
-                graduandoSeleccionado
+        /*
+        Bloquear botón mientras
+        se guarda.
+        */
+
+        const botonEnviar =
+            formMensaje.querySelector(
+                "button[type='submit']"
             );
 
 
-        mensajes.push({
-
-            autor,
-            relacion,
-            texto
-
-        });
+        botonEnviar.disabled =
+            true;
 
 
-        guardarMensajes(
-
-            graduandoSeleccionado,
-
-            mensajes
-
-        );
-
-
-        mostrarMensajes(
-            graduandoSeleccionado
-        );
-
-
-        formMensaje.reset();
+        botonEnviar.textContent =
+            "Guardando...";
 
 
         mensajeConfirmacion.textContent =
-            "♥ Tu mensaje fue guardado.";
+            "";
 
 
-        setTimeout(() => {
+        try {
+
+            /*
+            Guardar el mensaje
+            en Firestore.
+            */
+
+            await addDoc(
+
+                collection(
+                    db,
+                    "mensajes"
+                ),
+
+                {
+
+                    graduandoId:
+                        graduandoSeleccionado,
+
+                    autor:
+                        autor,
+
+                    relacion:
+                        relacion,
+
+                    texto:
+                        texto,
+
+                    creadoEn:
+                        serverTimestamp()
+
+                }
+
+            );
+
+
+            /*
+            Limpiar formulario.
+            */
+
+            formMensaje.reset();
+
 
             mensajeConfirmacion.textContent =
-                "";
+                "♥ Tu mensaje fue enviado correctamente.";
 
-        }, 3000);
+
+            /*
+            No tenemos que llamar manualmente
+            a mostrarMensajes.
+
+            onSnapshot detectará automáticamente
+            el mensaje nuevo y lo mostrará.
+            */
+
+
+            setTimeout(
+                () => {
+
+                    mensajeConfirmacion.textContent =
+                        "";
+
+                },
+
+                4000
+            );
+
+        }
+
+        catch(error) {
+
+            console.error(
+                "Error guardando mensaje:",
+                error
+            );
+
+
+            mensajeConfirmacion.textContent =
+                "No se pudo enviar el mensaje. Intenta nuevamente.";
+
+        }
+
+        finally {
+
+            botonEnviar.disabled =
+                false;
+
+
+            botonEnviar.textContent =
+                "Dejar mensaje ♥";
+
+        }
 
     }
 );
@@ -757,7 +1046,8 @@ let indiceImagen = 0;
 
 function mostrarImagen(indice) {
 
-    indiceImagen = indice;
+    indiceImagen =
+        indice;
 
 
     imagenGrande.src =
@@ -848,7 +1138,9 @@ imagenesGaleria.forEach(
 
             () => {
 
-                mostrarImagen(indice);
+                mostrarImagen(
+                    indice
+                );
 
             }
         );
@@ -1107,8 +1399,26 @@ document.addEventListener(
             event.key === "Escape"
         ) {
 
-            cerrarGaleria();
-            cerrarMensajes();
+            if (
+                lightbox.classList.contains(
+                    "activo"
+                )
+            ) {
+
+                cerrarGaleria();
+
+            }
+
+
+            if (
+                modalMensajes.classList.contains(
+                    "activo"
+                )
+            ) {
+
+                cerrarMensajes();
+
+            }
 
         }
 
