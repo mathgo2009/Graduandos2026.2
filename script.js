@@ -27,21 +27,13 @@ Reemplaza solamente los textos entre comillas.
 */
 
 const firebaseConfig = {
-
-    apiKey: "TU_API_KEY",
-
-    authDomain: "TU_PROYECTO.firebaseapp.com",
-
-    projectId: "TU_PROJECT_ID",
-
-    storageBucket: "TU_PROYECTO.firebasestorage.app",
-
-    messagingSenderId: "TU_MESSAGING_SENDER_ID",
-
-    appId: "TU_APP_ID"
-
+  apiKey: "AIzaSyByUwat6sUQOZSD1KmO4VRjaMP_nkIgbf4",
+  authDomain: "graduandos2026-6035c.firebaseapp.com",
+  projectId: "graduandos2026-6035c",
+  storageBucket: "graduandos2026-6035c.firebasestorage.app",
+  messagingSenderId: "1026419407470",
+  appId: "1:1026419407470:web:9f97cc3f4517557b1e447f"
 };
-
 
 /* INICIAR FIREBASE */
 
