@@ -273,7 +273,7 @@ const graduandos = [
     },
 
     {
-        nombre: "Hilary Vásquez",
+        nombre: "Pablo Guzman",
         foto: "imagenes/foto21.jpeg",
         frase: "Nunca fue solamente llegar a la meta."
     },
@@ -285,7 +285,7 @@ const graduandos = [
     },
 
     {
-        nombre: "Pablo Guzman",
+        nombre: "Hilary Vásquez",
         foto: "imagenes/foto23.jpeg",
         frase: "Cada final trae un nuevo comienzo."
     },
