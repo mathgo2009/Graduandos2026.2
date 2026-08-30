@@ -255,7 +255,7 @@ const graduandos = [
     },
 
     {
-        nombre: "Vannia Velásquez",
+        nombre: "Vannia Velásquez ",
         foto: "imagenes/foto18.jpeg",
         frase: "Los buenos momentos siempre regresan en forma de recuerdos."
     },
