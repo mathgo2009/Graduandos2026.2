@@ -291,7 +291,7 @@ const graduandos = [
     },
 
     {
-        nombre: "Graduando 24",
+        nombre: "Marycielo Arana",
         foto: "imagenes/foto24.jpeg",
         frase: "Que nunca falten nuevas metas."
     },
