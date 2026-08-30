@@ -153,139 +153,139 @@ NO CAMBIÉ ESTA PARTE.
 const graduandos = [
 
     {
-        nombre: "Graduando 1",
+        nombre: "Nathalie Rodriguez",
         foto: "imagenes/foto1.jpeg",
         frase: "Un capítulo termina y otro comienza."
     },
 
     {
-        nombre: "Graduando 2",
+        nombre: "Rita Ceijas",
         foto: "imagenes/foto2.jpeg",
         frase: "Siempre recordaré esta etapa."
     },
 
     {
-        nombre: "Graduando 3",
+        nombre: "Mafer de Paz",
         foto: "imagenes/foto3.jpeg",
         frase: "Los mejores recuerdos quedan para siempre."
     },
 
     {
-        nombre: "Graduando 4",
+        nombre: "Emily Navas",
         foto: "imagenes/foto4.jpeg",
         frase: "Todo esfuerzo tiene su recompensa."
     },
 
     {
-        nombre: "Graduando 5",
+        nombre: "Avril López",
         foto: "imagenes/foto5.jpeg",
         frase: "El futuro comienza hoy."
     },
 
     {
-        nombre: "Graduando 6",
+        nombre: "Fatima Gramajo",
         foto: "imagenes/foto6.jpeg",
         frase: "Nunca olvidaremos esta historia."
     },
 
     {
-        nombre: "Graduando 7",
+        nombre: "Daniela Abal",
         foto: "imagenes/foto7.jpeg",
         frase: "Los recuerdos siempre nos acompañarán."
     },
 
     {
-        nombre: "Graduando 8",
+        nombre: "Fernanda Rivas",
         foto: "imagenes/foto8.jpeg",
         frase: "Esto apenas comienza."
     },
 
     {
-        nombre: "Graduando 9",
+        nombre: "Samantha Alvarado",
         foto: "imagenes/foto9.jpeg",
         frase: "Muchos sueños comienzan desde aquí."
     },
 
     {
-        nombre: "Graduando 10",
+        nombre: "Adriana Garcia",
         foto: "imagenes/foto10.jpeg",
         frase: "Cada momento valió la pena."
     },
 
     {
-        nombre: "Graduando 11",
+        nombre: "Dayana Vega",
         foto: "imagenes/foto11.jpeg",
         frase: "Nunca olvidaremos de dónde venimos."
     },
 
     {
-        nombre: "Graduando 12",
+        nombre: "Libny Muñoz",
         foto: "imagenes/foto12.jpeg",
         frase: "El camino continúa."
     },
 
     {
-        nombre: "Graduando 13",
+        nombre: "Majo Meda",
         foto: "imagenes/foto13.jpeg",
         frase: "Gracias por cada recuerdo."
     },
 
     {
-        nombre: "Graduando 14",
+        nombre: "Ashley Castillo",
         foto: "imagenes/foto14.jpeg",
         frase: "Todo gran sueño comienza con un primer paso."
     },
 
     {
-        nombre: "Graduando 15",
+        nombre: "Adian Cano",
         foto: "imagenes/foto15.jpeg",
         frase: "Nos llevamos mucho más que recuerdos."
     },
 
     {
-        nombre: "Graduando 16",
+        nombre: "Mathias Gomez",
         foto: "imagenes/foto16.jpeg",
         frase: "Nunca dejemos de soñar."
     },
 
     {
-        nombre: "Graduando 17",
+        nombre: "Sophia Morales",
         foto: "imagenes/foto17.jpeg",
         frase: "Un día recordaremos todo esto."
     },
 
     {
-        nombre: "Graduando 18",
+        nombre: "Vannia Velásquez",
         foto: "imagenes/foto18.jpeg",
         frase: "Los buenos momentos siempre regresan en forma de recuerdos."
     },
 
     {
-        nombre: "Graduando 19",
+        nombre: "Daniela Us",
         foto: "imagenes/foto19.jpeg",
         frase: "La historia continúa."
     },
 
     {
-        nombre: "Graduando 20",
+        nombre: "Sophia Gomez",
         foto: "imagenes/foto20.jpeg",
         frase: "Gracias por haber formado parte de este capítulo."
     },
 
     {
-        nombre: "Graduando 21",
+        nombre: "Hilary Vásquez",
         foto: "imagenes/foto21.jpeg",
         frase: "Nunca fue solamente llegar a la meta."
     },
 
     {
-        nombre: "Graduando 22",
+        nombre: "Antonio Navarijo",
         foto: "imagenes/foto22.jpeg",
         frase: "Lo mejor todavía está por llegar."
     },
 
     {
-        nombre: "Graduando 23",
+        nombre: "Pablo Guzman",
         foto: "imagenes/foto23.jpeg",
         frase: "Cada final trae un nuevo comienzo."
     },
