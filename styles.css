@@ -2063,3 +2063,44 @@ footer small {
         margin: 0 0 24px;
     }
 }
+
+/* Video decorativo de Nuestro futuro, debajo del texto y del degradado. */
+.futuro {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.futuro-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.futuro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.98) 0%,
+        rgba(255,255,255,0.9) 45%,
+        rgba(255,255,255,0.15) 100%
+    );
+}
+
+@media (max-width: 950px) {
+    .futuro::before {
+        background: linear-gradient(
+            rgba(255,255,255,0.90),
+            rgba(255,255,255,0.95)
+        );
+    }
+}
