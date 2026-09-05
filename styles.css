@@ -2032,3 +2032,34 @@ footer small {
     }
 
 }
+
+/* Portada móvil: fotografía completa y texto debajo. */
+.hero-foto-movil {
+    display: none;
+}
+
+@media (max-width: 950px) {
+    .hero {
+        min-height: 0;
+        padding-top: 76px;
+        flex-direction: column;
+        background: var(--navy);
+    }
+
+    .hero-foto-movil {
+        display: block;
+        width: 100%;
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    .hero-contenido {
+        width: 100%;
+        padding: 36px 22px 24px;
+    }
+
+    .hero .flecha-abajo {
+        position: static;
+        margin: 0 0 24px;
+    }
+}
