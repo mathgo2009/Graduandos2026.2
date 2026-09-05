@@ -1,0 +1,49 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /mensajes/{mensajeId} {
+      // Los mensajes son públicos para que puedan mostrarse en la página.
+      allow read: if true;
+
+      // Desde la web solo se permite CREAR mensajes con la estructura esperada.
+      allow create: if request.resource.data.keys().hasOnly([
+          'graduandoId',
+          'autor',
+          'relacion',
+          'texto',
+          'creadoEn'
+        ])
+        && request.resource.data.graduandoId is int
+        && request.resource.data.graduandoId >= 0
+        && request.resource.data.graduandoId < 28
+        && request.resource.data.autor is string
+        && request.resource.data.autor.size() >= 1
+        && request.resource.data.autor.size() <= 40
+        && request.resource.data.relacion is string
+        && request.resource.data.relacion in [
+          'Familia',
+          'Mamá',
+          'Papá',
+          'Hermano/a',
+          'Amigo/a',
+          'Compañero/a',
+          'Maestro/a',
+          'Otro'
+        ]
+        && request.resource.data.texto is string
+        && request.resource.data.texto.size() >= 1
+        && request.resource.data.texto.size() <= 400
+        && request.resource.data.creadoEn == request.time;
+
+      // Nadie desde el cliente puede modificar ni borrar mensajes existentes.
+      allow update, delete: if false;
+    }
+
+    // Bloquea cualquier otra colección/documento que no esté declarado arriba.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
