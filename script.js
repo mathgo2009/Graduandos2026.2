@@ -297,19 +297,19 @@ const graduandos = [
     },
 
     {
-        nombre: "Graduando 25",
+        nombre: "Dulce Alvarez",
         foto: "imagenes/foto25.jpeg",
         frase: "Un recuerdo puede durar para siempre."
     },
 
     {
-        nombre: "Graduando 26",
+        nombre: "Marjorie Aragon",
         foto: "imagenes/foto26.jpeg",
         frase: "El futuro nos espera."
     },
 
     {
-        nombre: "Graduando 27",
+        nombre: "Sophia Garcia",
         foto: "imagenes/foto27.jpeg",
         frase: "Una promoción, muchas historias."
     },
