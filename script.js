@@ -80,7 +80,7 @@ const graduandos = [
     { nombre: "Avril López", foto: "imagenes/foto5.jpeg", frase: "Demasiado soñadora para conformarme." },
     { nombre: "Fatima Gramajo", foto: "imagenes/foto6.jpeg", frase: "You are what you love" },
     { nombre: "Daniela Abal", foto: "imagenes/foto7.jpeg", frase: "Los recuerdos siempre nos acompañarán." },
-    { nombre: "Fernanda Rivas", foto: "imagenes/foto8.jpeg", frase: "Esto apenas comienza." },
+    { nombre: "Fernanda Rivas", foto: "imagenes/foto8.jpeg", frase: "Tengo metas grandes, pero un corazón aún más grande para alcanzarlas" },
     { nombre: "Samantha Alvarado", foto: "imagenes/foto9.jpeg", frase: "Notes N words" },
     { nombre: "Adriana Garcia", foto: "imagenes/foto10.jpeg", frase: "Cada momento valió la pena." },
     { nombre: "Dayana Vega", foto: "imagenes/foto11.jpeg", frase: "Mejoraré por mí, para darles mi mejor versión" },
