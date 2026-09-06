@@ -88,7 +88,7 @@ const graduandos = [
     { nombre: "Majo Meda", foto: "imagenes/foto13.jpeg", frase: "No tengas miedo, porque yo estoy contigo..." },
     { nombre: "Ashley Castillo", foto: "imagenes/foto14.jpeg", frase: "Dudo, pero lo intento." },
     { nombre: "Adian Cano", foto: "imagenes/foto15.jpeg", frase: "Mente de estratega, disciplina constante y ambición sin límites." },
-    { nombre: "Mathias Gomez", foto: "imagenes/foto16.jpeg", frase: "Todo llega cuando tiene que llegar." },
+    { nombre: "Mathias Gomez", foto: "imagenes/foto16.jpeg", frase: "Todo es parte del proceso" },
     { nombre: "Sophia Morales", foto: "imagenes/foto17.jpeg", frase: "Un día recordaremos todo esto." },
     { nombre: "Vannia Velásquez", foto: "imagenes/foto18.jpeg", frase: "Todo tiene su tiempo" },
     { nombre: "Daniela Us", foto: "imagenes/foto19.jpeg", frase: "Soft leaves, strong roots." },
@@ -100,7 +100,7 @@ const graduandos = [
     { nombre: "Dulce Alvarez", foto: "imagenes/foto25.jpeg", frase: "Un recuerdo puede durar para siempre." },
     { nombre: "Marjorie Aragon", foto: "imagenes/foto26.jpeg", frase: "El futuro comienza hoy, con esperanza." },
     { nombre: "Sophia Garcia", foto: "imagenes/foto27.jpeg", frase: "Lorem Ipsum" },
-    { nombre: "Michelle Rivas", foto: "imagenes/foto28.jpeg", frase: "Promoción 2026." }
+    { nombre: "Michelle Rivas", foto: "imagenes/foto28.jpeg", frase: "hakuna matata" }
 ];
 
 /* ======================================
