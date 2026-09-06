@@ -315,7 +315,7 @@ const graduandos = [
     },
 
     {
-        nombre: "Graduando 28",
+        nombre: "Michelle Rivas",
         foto: "imagenes/foto28.jpeg",
         frase: "Promoción 2026."
     }
